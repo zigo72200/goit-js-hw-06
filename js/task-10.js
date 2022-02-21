@@ -9,15 +9,20 @@ const ref = {
   destroy: document.querySelector('[data-destroy]'),
 }
 
+let test = 0;
+function getInputValue() { 
+return test = Number(ref.input.value);
+};
 
-ref.create.addEventListener("click", createBoxes)
-ref.destroy.addEventListener("click", destroyBoxes)
+function eventCreate() {
+  createBoxes(test)
+}
 
-
-function createBoxes() {
+function createBoxes(amount) {
+  console.log(test);
   const arry = [];
 
-for (let i = 1; i <= Number(ref.input.value); i += 1){
+for (let i = 1; i <= amount; i += 1){
     arry.push(`<div style="background-color: ${getRandomHexColor()}; width: ${20 + i * 10}px; height: ${20 + i * 10}px" ></div>`) 
 }
  
@@ -27,14 +32,9 @@ for (let i = 1; i <= Number(ref.input.value); i += 1){
 
 function destroyBoxes() {
   ref.boxe.innerHTML = ''
-  // console.log(inpValue);
-  // console.log(ref.input.value);
-  // console.log(Number(ref.input.value));
 }
 
+ref.create.addEventListener("click", eventCreate)
+ref.destroy.addEventListener("click", destroyBoxes)
+ref.input.addEventListener("input", getInputValue)
 
-// const inputValue = () => {
-//   return Number(ref.input.value)
-// };
-
-// let inpValue = inputValue()
