@@ -9,29 +9,37 @@ const ref = {
   destroy: document.querySelector('[data-destroy]'),
 }
 
-let test = 0;
+let amount = 0;
 function getInputValue() { 
-return test = Number(ref.input.value);
+return amount = Number(ref.input.value);
 };
 
 function eventCreate() {
-  createBoxes(test)
+  createBoxes(amount)
 }
+
+let width = 20;
+let height = 20;
+
+
 
 function createBoxes(amount) {
-  console.log(test);
+ 
   const arry = [];
 
+  
 for (let i = 1; i <= amount; i += 1){
-    arry.push(`<div style="background-color: ${getRandomHexColor()}; width: ${20 + i * 10}px; height: ${20 + i * 10}px" ></div>`) 
+    arry.push(`<div style="background-color: ${getRandomHexColor()}; width: ${width = width + 10}px; height: ${ height = height + 10}px" ></div>`) 
 }
  
- ref.boxe.insertAdjacentHTML("afterbegin", arry.join(""))
+ ref.boxe.insertAdjacentHTML("beforeend", arry.join(""))
 
 }
 
 function destroyBoxes() {
   ref.boxe.innerHTML = ''
+  width = 20;
+  height = 20;
 }
 
 ref.create.addEventListener("click", eventCreate)
