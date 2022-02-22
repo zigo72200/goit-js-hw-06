@@ -6,7 +6,7 @@ console.log(linkItem);
 
 console.log(`Number of categories: ${linkItem.length}`);
 
-linkItem.map( item => {
+linkItem.forEach( item => {
    const text =  item.querySelector('h2').textContent
    const length = item.querySelectorAll('li').length
     console.log(`Category: ${text}`);
